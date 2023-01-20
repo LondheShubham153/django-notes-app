@@ -9,8 +9,7 @@ let getTitle = (note) => {
     return title
 }
 let getDate = (note) => {
-    let date = note.updated.split('T')[0]
-    return date
+    return new Date(note.updated).toLocaleDateString()
 }
 let getContent = (note) => {
     let title = note.body.split('\n')[0]

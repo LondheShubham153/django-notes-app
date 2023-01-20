@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@400;600;700&display=swap');
+
+
+
+:root {
+  --color-main: #f68657;
+  --color-text: #383a3f;
+  --color-dark: #1f2124;
+  --color-gray: #677;
+  --color-bg: #f3f6f9;
+  --color-light: #acb4bd;
+  --color-lighter: #f9f9f9;
+  --color-white: #fff;
+  --color-border:#e0e3e6;
+}
+
+.dark {
+  --color-main: #f68657;
+  --color-text: #d6d1d1;
+  --color-dark: #f5f6f7;
+  --color-gray: #999;
+  --color-bg: #1f2124;
+  --color-lighter: #292a2c;
+  --color-white: #2e3235;
+  --color-border:#252629;
+}
+
+/* BASE STYLES */
+
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Lexend', sans-serif;
+  color: inherit;
+  font-size: inherit;
+  scroll-behavior: smooth;
+}
+
+
+body{
+  line-height: 1.8em;
+  font-weight: 400;
+  font-size: 16px;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* APP STYLES */
+
+
+.container {
+  width: 100%;
+  height: 100vh;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  display: flex;
+  align-items: center;
+}
+
+
+.app {
+  width: 100%;
+  max-width: 480px;
+  height: 88vh;
+  margin: 0 auto;
+  background-color: var(--color-white);
+  box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.05);
+  position: relative;
+}
+
+
+.app-header {
+  display: flex;
+  align-items: center;
+  padding: 16px;
+  justify-content: space-between;
+  background-color: var(--color-lighter);
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.app-header h1 {
+  font-size: 30px;
+  color: var(--color-dark);
+  font-weight: 800;
+  text-align: center;
+}
+
+.app-header button {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+
+.app-header button > svg {
+  fill: var(--color-dark);
+  height: 25px;
+  width: 25px;
+  object-fit: cover;
+}
+
+.app-body {
+  padding: 16px;
+}
+
+
+/* NOTES STYLES */
+
+.notes-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+}
+
+.notes-title,
+.notes-count {
+  color: var(--color-main);
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.notes-count {
+  font-size: 18px;
+  color: var(--color-gray);
+}
+
+
+.notes-list {
+  padding: 0;
+  margin: 16px 0;
+  height: 70vh;
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+}
+
+.notes-list::-webkit-scrollbar {
+  display: none;
+}
+
+.notes-list-item {
+  border-bottom: 1px solid  var(--color-border);
+  margin-bottom: 12px;
+  padding: 8px 16px;
+  transition: all 0.2s ease-in-out;
+}
+
+.notes-list-item:hover {
+  background-color: var(--color-bg);
+  cursor: pointer;
+}
+
+.notes-list-item h3,
+.notes-list-item p span {
+  font-weight: 600;
+}
+
+
+.notes-list-item p span {
+  color: var(--color-gray);
+  display: inline-block;
+  margin-right: 8px;
+}
+
+.notes-list-item p {
+  font-size: 14px;
+  color: var(--color-light);
+}
+
+.floating-button {
+  font-size: 48px;
+  position: absolute;
+  bottom: 24px;
+  right: 16px;
+  background: var(--color-main);
+  border: none;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+.floating-button > svg {
+  fill: var(--color-bg);
+}
+
+
+
+/*==============================
+=>  Note Styles
+================================*/
+
+.note-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--color-main);
+  padding: 10px;
+}
+
+.note-header h3 {
+  display: flex;
+  align-items: center;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.note-header h3 svg {
+  fill: var(--color-main);
+  width: 20px;
+  margin-right: 8px;
+}
+
+.note-header button {
+  border: none;
+  outline: none;
+  font-weight: 600;
+  background-color: transparent;
+  font-size: 18px;
+  cursor: pointer;
+}
+
+.note textarea {
+  background-color: var(--color-white);
+  border: none;
+  padding: 16px 12px;
+  width: 100%;
+  height: 70vh;
+  resize: none;
+  scrollbar-width: none; /* Firefox */
+}
+
+.note textarea:active,
+.note textarea:focus {
+  outline: none;
+  border: none;
+}
+
+.note textarea::-webkit-scrollbar {
+  display: none;
+}

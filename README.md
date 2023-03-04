@@ -2,43 +2,29 @@
 This is a simple notes app built with React and Django.
 
 ## Requirements
-1. Python 
+1. Python 3.9
 2. Node.js
 3. React
 
 ## Installation
 1. Clone the repository
 ```
-git clone https://github.com/Hitstar53/notesapp.git
-```
-2. Create a virtual environment and activate it
-```
-virtualenv venv
-venv/bin/activate
-```
-3. Install the requirements
-```
-pip install -r requirements.txt
-```
-4. Run the server
-```
-python manage.py runserver
+git clone https://github.com/LondheShubham153/django-notes-app.git
 ```
 
-## Frontend - React
-5. Open another terminal and navigate to the mynotes directory
+2. Build the app
 ```
-cd mynotes
-```
-6. Install the dependencies
-```
-npm install
-```
-7. Run the app
-```
-npm start
+docker build -t notes-app .
 ```
 
-## Deployment
-App is deployed on Railway: [Notes App](https://notesapp-production-8c87.up.railway.app/)  
-Refer this article on how to: [deploy a django app on Railway](https://dev.to/osahenru/using-railway-app-to-deploy-your-django-project-3ah1)
+3. Run the app
+```
+docker run -d -p 8000:8000 notes-app:latest
+```
+
+## Nginx
+
+Install Nginx reverse proxy to make this application available
+
+`sudo apt-get update`
+`sudo apt install nginx`

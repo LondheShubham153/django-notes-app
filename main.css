@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+body {
+  font-family: "Poppins";
+  font-size: 16px;
+}
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 800;
+}
+
+.header {
+  background-color: #fffcf5;
+}
+.header .nav-link {
+  color: #535353;
+  padding: 1.2rem;
+  font-weight: 500;
+}
+.header .offcanvas {
+  z-index: 10000;
+}
+
+.section {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.footer li {
+  margin-bottom: 1.2rem;
+}
+
+.footer a {
+  color: white;
+  text-decoration: none;
+}
+.btn-rounded {
+  border-radius: 50% !important;
+  padding: 0.5rem !important;
+  width: 40px;
+  height: 40px;
+}
+.donation-section {
+  background: url("./Assets/Black-BG-image@2x.png");
+  background-size: cover;
+}
+
+img {
+  max-width: 100%;
+}
+.event-card {
+  max-height: 350px;
+  overflow-y: auto;
+}
+.event-card .calendar-date {
+  border-radius: 0 0 1.5rem 0;
+  padding: 0.7rem 0.9rem;
+  line-height: 0.9;
+}
+
+@media (min-width: 768px) {
+
+}
+
+@media (max-width: 768px) {
+
+}
+
+

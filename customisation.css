@@ -1,0 +1,133 @@
+:root {
+  --bs-primary: #60AF6F;
+  --bs-primary-light: #74C983;
+  --bs-secondary: #5e5e5e;
+  --bs-border-radius: 5px;
+  --bs-border-radius-lg: 2rem;
+  --bs-success-rgb: 0, 163, 36;
+  --bs-shadow: 0 .3px 6px #00000029;
+}
+.form-control {
+  outline: none !important;
+  box-shadow: none !important;
+  padding: 0.5rem 0.75rem;
+}
+.form-control-sm {
+  padding: 0.25rem 0.5rem !important;
+}
+::placeholder {
+  color: black !important;
+}
+.text-primary {
+  color: var(--bs-primary) !important;
+}
+.bg-primary {
+  color: white;
+  background-color: var(--bs-primary) !important;
+}
+.bg-primary-light {
+  background-color: var(--bs-primary-light) !important;
+}
+.border-primary {
+  border-color: var(--bs-primary) !important;
+}
+.border-secondary {
+  border-color: var(--bs-secondary) !important;
+}
+.text-secondary {
+  color: var(--bs-secondary) !important;
+}
+.bg-secondary {
+  color: white;
+  background-color: var(--bs-secondary) !important;
+}
+.btn-primary {
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
+}
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:focus,
+.btn-primary.active {
+  background-color: var(--bs-primary-light);
+  border-color: var(--bs-primary-light);
+}
+.btn-outline-primary {
+  color: var(--bs-primary);
+  border-color: var(--bs-primary);
+}
+.btn-outline-primary:hover,
+.btn-outline-primary:active,
+.btn-outline-primary:focus,
+.btn-outline-primary.active {
+  color: white;
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
+}
+.btn-secondary {
+  background-color: var(--bs-secondary);
+  border-color: var(--bs-secondary);
+}
+.rounded {
+  border-radius: var(--bs-border-radius) !important;
+}
+.rounded-lg {
+  border-radius: var(--bs-border-radius-lg) !important;
+}
+.btn {
+  border-radius: var(--bs-border-radius);
+  padding: 0.6rem 1.2rem;
+  box-shadow: var(--bs-shadow);
+}
+.btn-lg {
+  padding: 0.7rem 2rem;
+  font-size: 1rem;
+}
+.btn-sm {
+  padding: 0.25rem 0.5rem;
+}
+.card {
+  border-radius: var(--bs-border-radius);
+  color: #27104e;
+  box-shadow: var(--bs-shadow);
+}
+.card-header:first-child {
+  border-radius: var(--bs-border-radius) var(--bs-border-radius) 0 0;
+}
+.fw-semi-bold {
+  font-weight: 500;
+}
+.fs-7 {
+  font-size: 14px;
+}
+.fs-8 {
+  font-size: 12px;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: #ccc; 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #888; 
+}
+
+@media (min-width: 1400px) {
+  .container,
+  .container-lg,
+  .container-md,
+  .container-sm,
+  .container-xl,
+  .container-xxl {
+    max-width: 1200px;
+  }
+}

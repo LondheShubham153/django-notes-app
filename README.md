@@ -31,4 +31,4 @@ Install Nginx reverse proxy to make this application available
 
 Thanks for this amazing feels
 
-I would like to make some changes for the practical purpose in this
+I would like to make some changes for the practical purpose 

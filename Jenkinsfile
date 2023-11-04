@@ -26,7 +26,7 @@ pipeline {
         }
         stage("Deploy"){
             steps {
-                echo "Deploying the container"
+                echo "Deploy kar container bsdk"
                 sh "docker-compose down && docker-compose up -d"
                 
             }

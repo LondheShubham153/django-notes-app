@@ -14,5 +14,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag notes-image:$(date +%s)
+      run: docker build . --file Dockerfile --tag notes-image:v1
+
+    - name: Push to DockerHub
+      uses: mr-smithers-excellent/docker-build-push@v6
+      with:
+        image: musaghauriii/notes-app
+        registry: docker.io
+        tags: v1
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}

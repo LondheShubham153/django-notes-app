@@ -4,3 +4,6 @@ services :
      image : gsurendhar/notes-app:latest
      ports :
          - "8000:8000"
+
+
+         

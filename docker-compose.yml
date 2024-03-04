@@ -1,6 +1,6 @@
 version : "3.3"
 services :
   web :
-     image : helly105/my-note-app:latest
+     image : helly105/end-to-end-pipeline:v1
      ports :
          - "8000:8000"

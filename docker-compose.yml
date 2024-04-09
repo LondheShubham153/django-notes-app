@@ -3,4 +3,4 @@ services :
   web :
      image : vikash1997/django-note-app:v1 
      ports :
-         - "8000:8000"
+         - "5000:5000"

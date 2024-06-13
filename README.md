@@ -28,3 +28,7 @@ Install Nginx reverse proxy to make this application available
 
 `sudo apt-get update`
 `sudo apt install nginx`
+
+Thanks for this amazing feels
+
+Hi I would like to add one something into this profile

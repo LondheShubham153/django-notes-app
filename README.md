@@ -1,4 +1,4 @@
-# Simple Notes App for TWS Community and for learning..
+# Simple Notes App for TWS Community and for learning......
 This is a simple notes app built with React and Django.
 
 ## Requirements

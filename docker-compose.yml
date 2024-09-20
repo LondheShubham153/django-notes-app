@@ -1,6 +1,7 @@
 version : "3.3"
 services :
   web :
-     image : trainwithshubham/notes-app-jenkins:latest
+     build:
+       context: .
      ports :
          - "8000:8000"

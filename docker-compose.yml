@@ -1,6 +1,6 @@
 version : "3.3"
 services :
   web :
-     image: "trainwithshubham/notes-app:latest"
+     image: "trainwithshubham/notes-app:latest01"
      ports :
          - "8000:8000"

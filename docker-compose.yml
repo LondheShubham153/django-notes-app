@@ -48,6 +48,6 @@ services:
     networks:
       - notes-app-nw
 
-  networks:
-      notes-app-nw:
+networks:
+    notes-app-nw:
 

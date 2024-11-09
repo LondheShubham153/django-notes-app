@@ -29,6 +29,8 @@ services:
       timeout: 5s
       retries: 5
       start_period: 30s
+    networks:
+      - notes-app-nw
   db:
     image: mysql
     container_name: "db_cont"
@@ -43,4 +45,9 @@ services:
       timeout: 5s
       retries: 5
       start_period: 60s
+    networks:
+      - notes-app-nw
+
+  networks:
+      notes-app-nw:
 

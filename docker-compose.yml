@@ -6,17 +6,20 @@ services:
     image: nginx
     container_name: "nginx_cont"
     ports:
-      - 80:80
+      - "80:80"
     restart: always
     depends_on:
       - django_app
+    networks:
+      - notes-app-nw
+
   django_app:
-    image: django_app
     build:
       context: .
+    image: django_app
     container_name: "django_cont"
     ports:
-      - 8000:8000
+      - "8000:8000"
     command: sh -c "python manage.py migrate --noinput && gunicorn notesapp.wsgi --bind 0.0.0.0:8000"
     env_file:
       - ".env"
@@ -31,6 +34,7 @@ services:
       start_period: 30s
     networks:
       - notes-app-nw
+
   db:
     image: mysql
     container_name: "db_cont"
@@ -48,6 +52,5 @@ services:
     networks:
       - notes-app-nw
 
-  networks:
-      notes-app-nw:
-
+networks:
+  notes-app-nw:

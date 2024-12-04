@@ -18,3 +18,5 @@ COPY . /app/backend
 EXPOSE 8000
 #RUN python manage.py migrate
 #RUN python manage.py makemigrations
+
+CMD ["gunicorn","-b","0.0.0.0:8000","notesapp.wgsi"]

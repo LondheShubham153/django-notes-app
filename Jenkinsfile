@@ -1,29 +1,33 @@
-@Library('Shared')_
-pipeline{
-    agent { label 'dev-server'}
+
+
+pipeline {
+    agent any
     
     stages{
-        stage("Code clone"){
+        stage("Code"){
             steps{
-                sh "whoami"
-            clone("https://github.com/LondheShubham153/django-notes-app.git","main")
+             echo "clone the code"
+              git url: "https://github.com/Zar475/Three-tier-django.git", branch: "master"
             }
         }
-        stage("Code Build"){
+        stage("Build & Test"){
             steps{
-            dockerbuild("notes-app","latest")
+                sh "docker build . -t djangoapp"
             }
         }
         stage("Push to DockerHub"){
             steps{
-                dockerpush("dockerHubCreds","notes-app","latest")
+                withCredentials([usernamePassword(credentialsId:"DockerHub",passwordVariable:"DockerHubPass",usernameVariable:"DockerHubUser")]){
+                    sh "docker login -u ${env.DockerHubUser} -p ${env.DockerHubPass}"
+                    sh "docker tag djangoapp ${env.DockerHubUser}/flaskapp:latest"
+                    sh "docker push ${env.DockerHubUser}/djangoapp:latest" 
+                }
             }
         }
         stage("Deploy"){
             steps{
-                deploy()
+                sh "docker-compose down && docker-compose up -d"
             }
         }
-        
     }
 }

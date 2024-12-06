@@ -34,6 +34,8 @@ services:
       start_period: 30s
     networks:
       - notes-app-nw
+    volumes:
+      - django_app_data:/app/data  # Docker-managed volume instead of bind mount
 
   db:
     image: mysql
@@ -42,7 +44,7 @@ services:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=test_db
     volumes:
-      - ./data/mysql/db:/var/lib/mysql
+      - mysql_data:/var/lib/mysql  # Docker-managed volume instead of bind mount
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot"]
       interval: 10s
@@ -54,3 +56,7 @@ services:
 
 networks:
   notes-app-nw:
+
+volumes:
+  mysql_data:  # Named volume for MySQL data
+  django_app_data:  # Named volume for Django data

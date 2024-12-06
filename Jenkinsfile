@@ -7,7 +7,7 @@ pipeline {
         stage("Code"){
             steps{
              echo "clone the code"
-              git url: "https://github.com/Zar475/Three-tier-django.git", branch: "master"
+              git url: "https://github.com/Zar475/Three-tier-django.git", branch: "main"
             }
         }
         stage("Build & Test"){

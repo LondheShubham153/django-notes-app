@@ -1,0 +1,13 @@
+version: 0.0
+os: linux
+
+hooks:
+  ApplicationStop:
+    - location: stop_server.sh
+      timeout: 300
+      runas: root
+
+  AfterInstall:
+    - location: startserver.sh
+      timeout: 300
+      runas: root

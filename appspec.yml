@@ -2,10 +2,10 @@ version: 0.0
 os: ubuntu
 hooks:
   AfterInstall:
-    - location: scripts/startserver.sh
+    - location: startserver.sh
       timeout: 300
       runas: root
   ApplicationStop:
-    - location: scripts/stop_server.sh
+    - location: stop_server.sh
       timeout: 300
       runas: root

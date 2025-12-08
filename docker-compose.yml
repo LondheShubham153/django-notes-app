@@ -1,56 +1,57 @@
-version: "3.8"
+version: "3.9"
 
 services:
   nginx:
-    build: ./nginx
-    image: nginx
-    container_name: "nginx_cont"
+    build:
+      context: ./nginx
+    container_name: nginx
     ports:
       - "80:80"
+    networks: 
+      - notes-app
     restart: always
     depends_on:
-      - django_app
-    networks:
-      - notes-app-nw
-
-  django_app:
-    build:
-      context: .
-    image: django_app
-    container_name: "django_cont"
-    ports:
-      - "8000:8000"
-    command: sh -c "python manage.py migrate --noinput && gunicorn notesapp.wsgi --bind 0.0.0.0:8000"
-    env_file:
-      - ".env"
-    depends_on:
-      - db
-    restart: always
-    healthcheck:
-      test: ["CMD-SHELL", "curl -f http://localhost:8000/admin || exit 1"]
-      interval: 10s
-      timeout: 5s
-      retries: 5
-      start_period: 30s
-    networks:
-      - notes-app-nw
+      - django
 
   db:
-    image: mysql
-    container_name: "db_cont"
+    container_name: mysql
+    image: mysql:8.0
+    ports:
+      - "3307:3306"
     environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=test_db
-    volumes:
-      - ./data/mysql/db:/var/lib/mysql
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: test_db
+    networks:
+      - notes-app
+    restart: always
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot"]
       interval: 10s
       timeout: 5s
       retries: 5
       start_period: 60s
+
+  django:
+    build:
+      context: .
+    container_name: django_cont
+    command: sh -c "python manage.py migrate --no-input && gunicorn notesapp.wsgi --bind 0.0.0.0:8000"
+    ports:
+      - "8000:8000"
+    env_file:
+      - ".env"
+    restart: always
+    depends_on:
+      db:
+        condition: service_healthy
     networks:
-      - notes-app-nw
+      - notes-app
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:8000/admin || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 60s
 
 networks:
-  notes-app-nw:
+  notes-app:

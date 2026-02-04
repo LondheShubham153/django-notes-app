@@ -9,7 +9,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/*
 
 
-# Install app dependencies abc
+# Install app dependencies abc-revert
 RUN pip install mysqlclient
 RUN pip install --no-cache-dir -r requirements.txt
 

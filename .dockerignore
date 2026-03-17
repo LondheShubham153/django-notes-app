@@ -1,0 +1,6 @@
+data/
+data/mysql/
+data/mysql/db/
+*.dblwr
+*.ibd
+*.frm

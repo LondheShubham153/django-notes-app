@@ -1,0 +1,9 @@
+mysql-data/
+*.sock
+*.pid
+*.log
+__pycache__/
+*.pyc
+.env
+.git
+.gitignore

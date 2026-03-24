@@ -5,6 +5,13 @@ pipeline {
     }
 
     stages {
+        stage("First Run Code To understand SCM"){
+            steps{
+                script{
+                    sh "ls -lrth"
+                }
+            }
+        }
 
         stage("Hello") {
             steps {

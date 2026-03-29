@@ -1,5 +1,3 @@
-version: "3.8"
-
 services:
   nginx:
     build: ./nginx
@@ -42,7 +40,7 @@ services:
       - MYSQL_ROOT_PASSWORD=root
       - MYSQL_DATABASE=test_db
     volumes:
-      - ./data/mysql/db:/var/lib/mysql
+      - mysql_data:/var/lib/mysql
     healthcheck:
       test: ["CMD", "mysqladmin", "ping", "-h", "localhost", "-uroot", "-proot"]
       interval: 10s
@@ -53,4 +51,8 @@ services:
       - notes-app-nw
 
 networks:
-  notes-app-nw:
+  notes-app-nw: {}
+
+volumes:
+  mysql_data:
+

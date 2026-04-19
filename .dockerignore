@@ -1,0 +1,5 @@
+data/
+*.log
+*.db
+__pycache__/
+.git/

@@ -1,7 +1,7 @@
 FROM python:3.9
 
 WORKDIR /app/backend
-
+ENV DEBIAN_FRONTEND=noninteractive
 COPY requirements.txt /app/backend
 RUN apt-get update \
     && apt-get upgrade -y \
